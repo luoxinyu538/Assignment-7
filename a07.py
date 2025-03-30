@@ -2,7 +2,7 @@ import dash
 from dash import dcc, html, Input, Output
 import plotly.graph_objs as go
 import pandas as pd
-
+server=app.server
 world_cup_finals = [
     {"year": 1930, "winner": "Uruguay", "runner_up": "Argentina"},
     {"year": 1934, "winner": "Italy", "runner_up": "Czechoslovakia"},
