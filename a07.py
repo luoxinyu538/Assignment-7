@@ -2,6 +2,7 @@ import dash
 from dash import dcc, html, Input, Output
 import plotly.graph_objs as go
 import pandas as pd
+
 world_cup_finals = [
     {"year": 1930, "winner": "Uruguay", "runner_up": "Argentina"},
     {"year": 1934, "winner": "Italy", "runner_up": "Czechoslovakia"},
@@ -49,7 +50,7 @@ fig_choropleth.update_layout(
 )
 
 app = dash.Dash(__name__)
-server=app.server
+
 app.layout = html.Div([
     html.H1("FIFA World Cup Dashboard", style={'textAlign': 'center'}),
     html.Div([
@@ -81,6 +82,8 @@ app.layout = html.Div([
     ])
 ])
 
+server = app.server
+
 @app.callback(
     Output("country-win-output", "children"),
     Input("country-dropdown", "value")
@@ -105,5 +108,4 @@ def update_year_final_output(selected_year):
     else:
         return "Year not found in data."
 
-if __name__ == "__main__":
-    app.run_server(debug=True)
+
